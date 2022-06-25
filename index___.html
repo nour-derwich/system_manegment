@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Expires" content="Fri, Jan 01 1900 00:00:00 GMT">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Lang" content="en">
+<meta name="author" content="">
+<meta http-equiv="Reply-to" content="@.com">
+<meta name="generator" content="PhpED 8.0">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="creation-date" content="09/06/2012">
+<meta name="revisit-after" content="15 days">
+<title>Untitled</title>
+<link rel="stylesheet" type="text/css" href="my.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+</head>
+<body>
+  <input type="text" id="qrid"> 
+  <input type="text" id="noofqr"> 
+  <button type="button" onclick="gen_qrcode();">Genrate QR CODE</button>
+  <button type="button" onclick="pop_print();">Print QR CODE</button>
+  <br>
+  <div class="qrcode">
+  
+  <img src="https://chart.googleapis.com/chart?chs=100x100&cht=qr&chl=http://www.dawateislami.net/bookslibrary/2978&choe=UTF-8" />  
+  <br>
+  <img src="https://chart.googleapis.com/chart?chs=100x100&cht=qr&chl=http://www.dawateislami.net/bookslibrary/2973&choe=UTF-8" />
+  <br>
+  <img src="https://chart.googleapis.com/chart?chs=100x100&cht=qr&chl=http://www.dawateislami.net/bookslibrary/2977&choe=UTF-8" />
+  </div>
+    <script type="text/javascript">
+       function gen_qrcode()
+       {
+         var qrcode_id = $('#qrid').val();  
+         var noofqr    = $('#noofqr').val();  
+         var qrhtml    = '';
+         for(var i = 1; i <= noofqr; i++)
+         {                       
+          qrhtml += '<img src="https://chart.googleapis.com/chart?chs=100x100&cht=qr&chl='+qrcode_id+'&choe=UTF-8" title="Link to Google.com" />';   
+         }
+                      $('.qrcode').html(qrhtml);
+   
+       }
+       
+    function pop_print(){
+    w=window.open(null, 'Print_Page', 'scrollbars=yes');        
+    w.document.write(jQuery('.qrcode').html());
+    w.document.close();
+    w.print();
+}
+    </script>
+</body>
+</html>
